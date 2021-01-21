@@ -1,0 +1,54 @@
+*************GEEKS FOR GEEKS*************
+
+https://www.geeksforgeeks.org/naive-algorithm-for-pattern-searching/
+
+
+Given a text txt[0..n-1] and a pattern pat[0..m-1], write a function search(char pat[], char txt[]) that prints all occurrences of pat[] in txt[]. You may assume that n > m.
+Examples:
+
+Input:  txt[] = "THIS IS A TEST TEXT"
+        pat[] = "TEST"
+Output: Pattern found at index 10
+
+Input:  txt[] =  "AABAACAADAABAABA"
+        pat[] =  "AABA"
+Output: Pattern found at index 0
+        Pattern found at index 9
+        Pattern found at index 12
+        
+        
+ 
+ ******SOLUTION*************
+ 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void search(char *pat,char *txt)
+{
+    int m= strlen(pat);
+    int n= strlen(txt);
+    
+    for (int i=0;i<=n-m;i++)
+    {
+        int j;
+        
+        for (j=0;j<m;j++)
+        {
+            if (pat[j]!=txt[i+j])
+            break;
+        }
+        
+        if (j==m)
+        {
+            cout<<"Pattern found at index "<<i<<endl;
+        }
+    }
+}
+int main() 
+{ 
+    char txt[] = "AABAACAADAABAAABAA"; 
+    char pat[] = "AABA"; 
+    search(pat, txt); 
+    return 0; 
+} 
