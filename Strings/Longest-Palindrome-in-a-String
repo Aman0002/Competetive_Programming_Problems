@@ -1,0 +1,102 @@
+/************
+            GEEKS FOR GEEKS
+            https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string/0#
+
+
+
+Given a string S, find the longest palindromic substring in S. Substring of string S: S[ i . . . . j ] where 0 ≤ i ≤ j < len(S). Palindrome string: A string which reads the same backwards. More formally, S is palindrome if reverse(S) = S. Incase of conflict, return the substring which occurs first ( with the least starting index ).
+
+NOTE: Required Time Complexity O(n2).
+
+Input:
+The first line of input consists number of the testcases. The following T lines consist of a string each.
+
+Output:
+In each separate line print the longest palindrome of the string given in the respective test case.
+
+Constraints:
+1 ≤ T ≤ 100
+1 ≤ Str Length ≤ 104
+
+Example:
+Input:
+1
+aaaabbaa
+
+Output:
+aabbaa
+
+Explanation:
+Testcase 1: The longest palindrome string present in the given string is "aabbaa".
+
+
+*******/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	
+	while (t--)
+	{
+	    
+	    string s;
+	    cin>>s;
+	    int n = s.length();
+	    
+	    int max=-1;
+	    int end = 0;
+	    for (int i=0 ;i <n;i++)
+	    {
+	        //ODD LENGTH
+	        int l = i;
+	        int r = i;
+	        bool found = false;
+	        
+	        while (l>=0 && r<n &&s[l]==s[r])
+	        {
+	            
+	            int x= r - l +1;
+	            if (x>max)
+	            {
+	                max=x;
+	                end = r ;
+	            }
+	            l--;
+	            r++;
+	        }
+	       
+	        l=i;
+	        r= i + 1;
+	        //EVEN LENGTH
+	        while (l>=0 && r<n &&s[l]==s[r])
+	        {
+	            int x= r - l +1;
+	            if (x>max)
+	            {
+	                max=x;
+	               end = r;
+	            }
+	            l--;
+	            r++;
+	        }
+	        
+	      
+	    }
+	    
+	
+	    int start = end - max + 1 ;
+	    
+        while (start <=end)
+        {
+            cout<<s[start];
+            start++;
+        }
+	    cout<<endl;
+	  
+	}
+	return 0;
+}
