@@ -1,0 +1,54 @@
+/*
+Given a number N, find number of primes in the range [1,N].
+Input:
+The only line of input consists of a number N
+Output:
+Print the number of primes in the range [1,N].`
+Constraints:
+1≤N≤1000000
+Sample Input :
+3 
+Sample Output -
+2
+*/
+
+#include<iostream>
+#include <bits/stdc++.h>
+using namespace std;
+void mark_notPrimes(bool *help,int i ,int n)
+{
+    for (int st = i*i ;st<=n; st+=i)
+    {
+        help[st]=false;
+    }
+}
+int main(){
+	
+    // Write your code here
+    int n;
+    cin>>n;
+    
+    //Intialiising bool array
+    bool *help = new bool[n+1];
+    help[0]=false;
+    help[1]=false;
+    
+    for (int i = 2 ;i<=n;i++)
+        help[i]=true;
+    
+    for (int i = 2;i*i<=n;i++)
+    {
+        if (help[i])
+        {
+            mark_notPrimes(help,i,n);
+        }
+    }
+	int cnt = 0;
+    for (int i =0;i<=n;i++)
+    {
+        if (help[i])
+            cnt++;
+    }
+    cout<<cnt<<endl;
+    return 0;
+}
