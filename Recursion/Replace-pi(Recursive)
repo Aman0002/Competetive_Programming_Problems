@@ -1,0 +1,48 @@
+/* 
+ REPLACE ALL OCCURENCES OF PI WITH 3.14 In the gven String
+Given a string, compute recursively a new string where all appearances of "pi" have been replaced by "3.14".
+Sample Input 1 :
+xpix
+Sample Output :
+x3.14x
+Sample Input 2 :
+pipi
+Sample Output :
+3.143.14
+Sample Input 3 :
+pip
+Sample Output :
+3.14p
+
+*/
+
+#include <bits/stdc++.h>
+void help(char input[],int si)
+{
+    if (input[si]=='\0')
+        return ;
+    
+    help(input,si+1);
+    
+    if (input[si]=='p'&&input[si+1]=='i')
+    {
+        int x = strlen(input);
+        
+        for (int j = x; j>=si+2 ;j--)
+        {
+            input[j+2] = input[j];
+        }
+        input[si]='3';
+        input[si+1]='.';
+        input[si+2]= '1';
+        input[si+3]= '4';
+    }
+    
+    
+}
+void replacePi(char input[]) {
+	// Write your code here
+	help(input,0);
+}
+
+
