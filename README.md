@@ -283,7 +283,10 @@ Snsnsbbsbs
 Snsnns
 Jsnsnsb
 Snsnsbbsbs
-Snsnns
-programming competition generally involves the host presenting a set of logical or mathematical problems, also known as puzzles, to the contestants (who can vary in number from tens to several thousands), and contestants are required to write computer programs capable of solving each problem. Judging is based mostly upon number of problems solved and time spent for writing successful solutions, but may also include other factors (quality of output produced, execution time, program size, etc.)
+SnsnnsWhat is Competitive Programming and How to Prepare for It?
+Programming… Competitive Programming…
 
-Jsnsnsb
+It teaches you how to think?. If you are a programmer you might have understood the deep meaning of these lines quoted by Steve Jobs and you might have also experienced that even after shutting your computer you keep on thinking about programming stuff or code you have written in your project. Once you enter in programming you just don’t learn how to code but you also learn the “art of thinking”, by breaking your code into smaller chunks and then using your logic-based creativity to solve a problem from different angles.
+p
+
+
