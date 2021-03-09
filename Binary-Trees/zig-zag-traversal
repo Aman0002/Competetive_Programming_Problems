@@ -1,0 +1,69 @@
+/***
+
+********GEESK-FRO-GEEKS********
+
+https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1
+
+****/
+
+vector <int> zigZagTraversal(Node* root)
+{
+	// Code here
+	vector<int> ans;
+	if (root==NULL)
+	return ans;
+	
+	queue<Node *> q;
+	q.push(root);
+	bool str = true;
+	while (q.size()!=0)
+	{
+	    if (str)
+	    {
+	        int x = q.size();
+	        while (x--)
+	        {
+	            Node * temp = q.front();
+	            ans.push_back(temp->data);
+	            q.pop();
+	            if (temp->left)
+	            {
+	                q.push(temp->left);
+	            }
+	            if (temp->right)
+	            {
+	                q.push(temp->right);
+	            }
+	        }
+	        str = false;
+	    }else
+	    {
+	        int x = q.size();
+	        stack<int> s;
+	        while (x--)
+	        {
+	            Node * temp = q.front();
+	            s.push(temp->data);
+	            q.pop();
+	            if (temp->left)
+	            {
+	                q.push(temp->left);
+	            }
+	            if (temp->right)
+	            {
+	                q.push(temp->right);
+	            }
+	        }
+	        //empty the stack
+	        while (s.size())
+	        {
+	            ans.push_back(s.top());
+	            s.pop();
+	        }
+	       
+	       str = true; 
+	    }
+	    
+	}
+	return ans;
+}
