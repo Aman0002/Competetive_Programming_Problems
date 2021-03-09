@@ -1,0 +1,37 @@
+/*******
+************GEEKS-FOR-GEEKS*****
+https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
+******/
+struct x
+{
+    int h;
+    bool isBst;
+};
+struct x helper(Node * root)
+{
+     struct x obj;
+    if (root==NULL)
+    {
+       
+        obj.h = 0;
+        obj.isBst = true;
+        return obj;
+    }
+    
+    struct x obj1 = helper(root->left);
+    struct x obj2 = helper(root->right);
+    
+    obj.h = max(obj1.h,obj2.h)+1;
+    obj.isBst = obj1.isBst&&obj2.isBst;
+    
+    if (abs(obj1.h-obj2.h)>1)
+    {
+        obj.isBst = false;
+    }
+    return obj;
+}
+bool isBalanced(Node *root)
+{
+    //  Your Code here
+    return helper(root).isBst;
+}
