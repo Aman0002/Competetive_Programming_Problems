@@ -1,0 +1,35 @@
+/**********
+*************GEEKS-FOR-GEEKS*****
+https://practice.geeksforgeeks.org/problems/diagonal-traversal-of-binary-tree/1
+
+********/
+
+void helper(Node * root, int slope, map<int,vector<int>> &m)
+{
+    if(!root)
+    return ;
+    
+    m[slope].push_back(root->data);
+    
+    helper(root->left,slope+1,m);
+    helper(root->right,slope,m);
+    
+}
+vector<int> diagonal(Node *root)
+{
+   // your code here
+   vector<int> ans;
+   map<int,vector<int>> m;
+   helper(root,0,m);
+   for (auto x : m)
+   {
+       vector<int> v = x.second;
+       for (int i=0;i<v.size();i++)
+       {
+            ans.push_back(v[i]);    
+       }
+       
+   }
+   
+   return ans;
+}
